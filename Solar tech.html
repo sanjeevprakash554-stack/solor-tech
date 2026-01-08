@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Suriyan Tech</title>
+    <style>
+        /* Reset & Base */
+        * { margin: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6; color: #333;
+        background: #ffffff;
+        overflow-x: hidden;
+        }
+
+        img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        }
+
+        a {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        /* Typography */
+        h1, h2,  {
+        font-family: 'Playfair Display', serif;
+        color:gray;
+        }
+        .section-title {
+        font-size: 2.9rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        }
+
+        .section-title::after {
+        content: '';
+        width: 100px;
+        height: 5px;
+        background: linear-gradient(to right, #ffb84d, #ffca80);
+        display: block;
+        margin: 1rem auto;
+        border-radius: 3px;
+        }
+
+        /* Header */
+        header {
+        position: fixed;
+        width: 100%;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+        z-index: 1000;
+        transition: all 0.4s;
+        }
+
+        nav {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem; display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+/* ============================================navbar============================================ */
+:root {
+    --primary-blue: #0056b3;
+    --primary-blue-dark: #004085;
+    --primary-blue-light: #3385d6;
+    --primary-blue-lighter: #e6f2ff;
+    --accent-green: #10b981;
+    --white: #ffffff;
+    --light-gray: #f8fafc;
+    --medium-gray: #e2e8f0;
+    --dark-gray: #64748b;
+    --text-dark: #0f172a;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 2px 4px -1px rgba(0,0,0,0.06), 0 1px 2px 0 rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --transition-fast: 150ms cubic-bezier(0.4,0,0.2,1);
+    --transition-base: 300ms cubic-bezier(0.4,0,0.2,1);
+    --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Container */
+.container {
+position: static;
+max-width: 2000px;
+    margin-left:485px;
+    padding:-20px;
+    }
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: all var(--transition-base);
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-lg);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+}
+.logo {
+display: flex;
+position: relative;
+font-size:25px;
+color: var(--primary-blue);
+margin-top:-30px;
+    margin-right:335px;
+    margin-left:-500px;
+font-weight: 700;
+  text-shadow:
+    0 0 5px #c7b9ff,
+    0 0 10px #6ec1ff,
+    0 0 20px #6ec1ff;
+}
+
+.logo span {
+    font-size: 1.3rem;
+    color: var(--accent-green);
+    font-weight: 500;
+    margin-left: 4px;
+}
+
+.logo h2 {
+    font-size: 1.75rem;
+    color: var(--primary-blue);
+    margin: 0;
+    font-weight: 700;
+}
+.nav-menu {
+    position: relative;
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-left:100px;
+    padding:1px;
+}
+
+.nav-link {
+    color: var(--text-dark);
+    font-weight: 500;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    position: relative;
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-link:hover {
+    color: var(--primary-blue);
+    background-color: var(--primary-blue-lighter);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--accent-green);
+    border-radius: 9999px;
+    transition: width var(--transition-base);
+}
+
+.nav-link:hover::before {
+    width: calc(100% - 16px);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+}
+
+.menu-toggle span {
+    width: 26px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: all var(--transition-base);
+    border-radius: 9999px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+        .menu-toggle {
+        display: flex;
+        }
+
+        .nav-menu {
+        position: fixed;
+        top: 80px; /* adjust based on your navbar height */
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: left var(--transition-base);
+        box-shadow: var(--shadow-lg);
+        padding: var(--spacing-lg) 0;
+        gap: var(--spacing-md);
+        }
+
+        .nav-menu.active {
+        left: 0;
+        }
+
+        .nav-link {
+        padding: var(--spacing-md);
+        font-size: 1.125rem;
+        }
+        }
+
+        .mobile-menu {
+        display: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+        height: 100vh;
+        min-height: 700px;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://thumbs.dreamstime.com/b/solar-panels-roof-large-house-solar-panels-roof-modern-house-133375048.jpg') center/cover no-repeat fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        }
+
+        .hero-content {
+        max-width: 900px;
+        padding: 0 2rem;
+        animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+        from {
+        opacity: 0;
+        transform: translateY(30px);
+        }
+
+        to
+        { opacity: 1;
+        transform: translateY(0);
+        }
+        }
+
+        .hero h1 {
+        margin-top:100px;
+        color: #ffebc6;
+        font-size: 4.8rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.95;
+        }
+
+        .cta-btn {
+        background: linear-gradient(to right, #ffb84d, #ffca80);
+        color: #0b3d91;
+        margin-top: 1rem;
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        padding: 1.4rem 3.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.3rem;
+        transition: all 0.5s;
+        box-shadow: 0 15px 30px rgba(255,184,77,0.4);
+        }
+
+        .cta-btn:hover {
+        transform: translateY(-8px);
+        margin-bottom: 8px;
+        background: linear-gradient(to right, #ffca80, #ffd9a6);
+        box-shadow: 0 20px 40px rgba(255,184,77,0.5);
+        }
+
+        /* Sections */
+        section {
+        padding: 10rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        opacity: 0;
+        transition:
+        opacity 1s;
+        }
+
+        section.visible {
+        opacity: 1;
+        }
+
+        .benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 4rem;
+        }
+
+        .benefit-card {
+        transition: all 0.5s;
+        text-align: center;
+        border-radius: 20px;
+        background: #fff; padding: 3.5rem 2.5rem;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card:hover {
+        transform: translateY(-15px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .benefit-card img {
+        border-radius: 16px;
+        margin-bottom: 2rem;
+        height: 240px;
+        object-fit: cover;
+        }
+
+        .benefit-card h3 {
+        font-size: 1.9rem;
+        margin-bottom: 1rem;
+        color: #0b3d91;
+        }
+
+        .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem; align-items: center;
+        }
+
+        .about img {
+        border-radius: 20px;
+        box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        transition: transform 0.5s;
+        }
+
+        .about img:hover {
+        transform: scale(1.03);
+        }
+
+        .process {
+        background: linear-gradient(to bottom, #f8fbff, );
+        }
+
+        .process-grid {
+        gap: 4rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .step {
+        text-align: center;
+        padding: 3rem;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        transition: transform 0.5s;
+        }
+
+        .step:hover {
+        transform: translateY(-10px);
+        }
+
+        .step-number {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: #ffb84d;
+        margin-bottom: 1rem;
+        }
+
+        .testimonials {
+        background: linear-gradient(to bottom, #0b3d91, #0d47a1);
+        color: white;
+        }
+
+        .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 4rem;
+        }
+
+        .testimonial {
+        background: rgba(255,255,255,0.15);
+        padding: 3.5rem; border-radius: 20px;
+        backdrop-filter: blur(15px);
+        font-style: italic;
+        color: #f0f0f0;
+        transition: transform 0.5s;
+        }
+
+        .testimonial:hover {
+        transform: translateY(-10px);
+        }
+
+        .contact {
+        text-align: center;
+        background: #fff;
+        }
+
+        .contact form {
+        max-width: 700px;
+        margin: 0 auto;
+        display: grid;
+        gap: 1.8rem;
+        grid-template-columns: 1fr 1fr;
+        }
+
+        .contact form > * {
+        grid-column: span 2;
+        }
+
+        .contact form input[type="text"]
+        , .contact form input[type="email"],
+        .contact form input[type="tel"]
+        { grid-column: span 1; }
+        .contact input, .contact textarea
+        { padding: 1.4rem; border: 1px solid #ccc;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: border 0.4s;
+        }
+
+        .contact input:focus,
+        .contact textarea:focus {
+        border-color: #ffb84d;
+        outline: none;
+        }
+
+        .contact button {
+        background: linear-gradient(to right, #ffb84d, #ffca80);
+        color: #0b3d91; border: none;
+        padding: 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.5s;
+        box-shadow: 0 15px 30px rgba(255,184,77,0.4);
+        }
+
+        .contact button:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(255,184,77,0.5); #0b3d91
+        }
+
+        .footer {
+        background: #0b1d2d;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        }
+
+        .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 40px;
+        padding: 60px 80px;
+        }
+
+       .footer-box h2,
+       .footer-box h3 {
+       position: relative;
+       margin-left:38px;
+       margin-bottom: 15px;
+       color: #00e5ff;
+       }
+
+       .footer-logo {
+       font-size: 26px;
+       font-weight: bold;
+       }
+
+       .footer-box p,
+       .footer-box li {
+       font-size: 14px;
+       line-height: 1.7;
+       color: #cccccc;
+       }
+
+       .footer-box ul {
+        list-style: none;
+        }
+
+        .footer-box ul li {
+        margin-bottom: 8px;
+        }
+
+        .footer-box ul li a {
+        text-decoration: none;
+        color: #cccccc;
+        transition: 0.3s;
+        }
+
+        .footer-box ul li a:hover {
+        color: #00e5ff;
+        }
+
+        /* Social Icons */
+        .social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  color: #ffffff;
+  margin-right: 12px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #00e5ff;
+}
+
+/* Bottom Footer */
+.footer-bottom {
+  border-top: 1px solid #1f3b50;
+  padding: 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+.footer-bottom a {
+  color: #cccccc;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #00e5ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container,
+  .footer-bottom {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 16px;
+       transition: all 0.3s ease;
+       }
+
+       .social-links a:hover {
+       background: #00c2ff;
+       color: #081a2b;
+       transform: translateY(-4px);
+       }
+
+
+
+       .social-links {
+       justify-content: center;
+       }
+       }
+
+
+
+        @media (max-width: 992px) {
+        .about {
+        grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+        font-size: 3.8rem;
+        }
+        }
+        @media (max-width: 768px) {
+        .nav-links { display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-links.active {
+        display: flex;
+        }
+
+        .mobile-menu {
+        display: block;
+        }
+
+        .hero h1 {
+        font-size: 3.2rem;
+        }
+
+        .contact form {
+        grid-template-columns: 1fr;
+        }
+
+        .contact form > * {
+        grid-column: span 1;
+        }
+
+        .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 15px;
+        color:black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Replace your current <header> with this -->
+<header>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                   <b>Suriyan Tech</b>
+                </div>
+                <ul class="nav-menu" id="navLinks">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#process" class="nav-link">Process</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Power Your Future with Sustainable Solar Energy</h1>
+            <p>Premium solar panel installations delivering unmatched efficiency, reliability, and long-term savings for homes and businesses.</p>
+            <a href="#contact" class="cta-btn">Request Free Consultation</a>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <h2 class="section-title">Key Benefits of Solar Energy</h2>
+        <div class="benefits">
+            <div class="benefit-card">
+                <img src="https://www.shutterstock.com/image-illustration/environmental-icons-depicting-solar-panels-wind-260nw-2655357047.jpg" alt="Environmental Sustainability">
+                <h3>Environmental Impact</h3>
+                <p>Reduce your carbon footprint significantly and contribute to a greener planet with clean, renewable energy.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="https://www.residentialsolarpanels.org/wp-content/uploads/2025/05/solar-panel-lifecycle-infographic.jpeg" alt="Financial Savings">
+                <h3>Substantial Savings</h3>
+                <p>Lower utility bills by up to 90%, access federal incentives, and enjoy a strong return on investment.</p>
+            </div>
+            <div class="benefit-card">
+                <img src="https://www.anernstore.com/cdn/shop/articles/Diagram_of_an_AC_coupled_battery_system_showing_th.png?v=1761545569&width=1200" alt="Energy Independence">
+                <h3>Energy Independence</h3>
+                <p>Protect against rising energy costs and grid outages with reliable, self-generated power.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <img src="https://www.cnet.com/a/img/resize/c27af818fe1a95d32e24826b6509e4702f2c5858/hub/2023/06/11/4972ea68-6336-43cf-8bef-35cd65ff7b4a/gettyimages-1350971530-1.jpg?auto=webp&width=1200" alt="Professional Solar Installation Team">
+        <div>
+            <h2 class="section-title">About Suriyan tech</h2>
+            <p>With over 15 years of expertise, Suriyan tech Elite is a premier provider of high-efficiency solar solutions. Our NABCEP-certified installers deliver turnkey systems using Tier-1 panels and cutting-edge technology.</p>
+            <p>We prioritize quality, transparency, and customer satisfaction—from initial design to post-installation support.</p>
+            <a href="#contact" class="cta-btn">Get Started Today</a>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <h2 class="section-title">Our Streamlined Process</h2>
+        <div class="process-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Consultation & Assessment</h3>
+                <p>Free site evaluation and customized proposal.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>System Design</h3>
+                <p>Optimized layout for maximum performance and aesthetics.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Installation</h3>
+                <p>Professional, efficient installation with minimal disruption.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Activation & Support</h3>
+                <p>System monitoring, warranty, and ongoing maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">Client Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"Suriyan tech exceeded expectations. Professional from start to finish—our energy bills are now virtually zero."</p>
+                <strong>— STEVE ROGERS., Homeowner</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Outstanding service and quality. The team was knowledgeable and delivered on time. Highly recommended."</p>
+                <strong>— NATALIE RUSHMAN., Business Owner</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Best decision for our family. Excellent ROI and seamless integration with our smart home."</p>
+                <strong>— ROBERT DOWNEY JR., Residential Client</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Request Your Free Quote</h2>
+        <form>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <input type="tel" placeholder="Phone Number">
+            <input type="text" placeholder="Address (Optional)">
+            <textarea placeholder="Tell us about your project" rows="6" required></textarea>
+            <button type="submit">Submit Inquiry</button>
+             <p1>Our experts will contact you within 24 hours to discuss your solar needs.</p1>
+        </form>
+    </section>
+
+
+
+    <!-- Font Awesome CDN (add in <head>) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- Company Info -->
+    <div class="footer-box">
+      <h2 class="footer-logo">Suriyann Tech</h2>
+      <p>
+        Suriyann Tech is a forward-thinking technology company delivering
+        innovative digital, IT, and energy-based solutions for modern businesses.
+      </p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-box">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="home">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div class="footer-box">
+      <h3>Our Services</h3>
+        <ul>
+            <li>Solar Panel Installation</li>
+            <li>Maintenance & Support</li>
+            <li>Web Development</li>
+            <li>Software Solutions</li>
+            <li>IT Consulting</li>
+        </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-box">
+      <h3>Contact Us</h3>
+      <p>📍 34A, 4th East Cross Rd, Suthanthira Ponvizha Nagar, Gandhi Nagar,<br>  Katpadi, Vellore, Tamil Nadu 632006 India</p>
+      <p>📞 +91 96008 50440</p>
+      <p>📧 operations@vattara.com</p>
+
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/17qqL7Tg7N/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/vattara_in?igsh=eDk1YnByOHhkODcy"><i class="fab fa-instagram"></i></a>
+        <a href="https://maps.app.goo.gl/xcacGwH6opbS4E529?g_st=aw"><i class="fa fa-map-marker" aria-hidden="true"></i>
+</a>
+        <a href="https://wa.me/9600850440"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+  </div>
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <p>© 2025 Suriyan Tech. All Rights Reserved.</p>
+    <div class="policy-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 768) {
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                document.querySelector('header').style.background = 'rgba(255,255,255,1)';
+            } else {
+                document.querySelector('header').style.background = 'rgba(255,255,255,0.98)';
+            }
+        });
+
+        // Fade-in sections on scroll
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your request has been submitted. We will contact you shortly.');
+        });
+    </script>
+</body>
+</html>
